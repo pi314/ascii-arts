@@ -26,16 +26,16 @@ clear
 print_battery 0
 sleep 0.5
 while [ 1 ]; do
-    clear
+    printf "\033[1;1H"
     print_battery 1
     sleep 0.25
-    clear
+    printf "\033[1;1H"
     print_battery 2
     sleep 0.25
-    clear
+    printf "\033[1;1H"
     print_battery 3
     sleep 0.25
-    clear
+    printf "\033[1;1H"
     print_battery 4
     sleep 0.25
 done
