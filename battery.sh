@@ -23,19 +23,19 @@ function print_battery () {
     printf "'-------------'\n"
 }
 clear
+power=''
 print_battery 0
 sleep 0.5
 while [ 1 ]; do
-    printf "\033[1;1H"
-    print_battery 1
-    sleep 0.25
-    printf "\033[1;1H"
-    print_battery 2
-    sleep 0.25
-    printf "\033[1;1H"
-    print_battery 3
-    sleep 0.25
-    printf "\033[1;1H"
-    print_battery 4
-    sleep 0.25
+    for i in $(seq 0 4); do
+        printf "\033[1;1H"
+        print_battery ${i}
+        sleep 0.25
+    done
+
+    power="d${power}"
+
+    if [ "x${power}" = "xdddddddddddddddddddddddddddddd" ]; then
+        exit
+    fi
 done
