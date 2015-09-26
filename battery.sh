@@ -30,7 +30,7 @@ while [ 1 ]; do
     for i in $(seq 0 4); do
         printf "\033[1;1H"
         print_battery ${i}
-        sleep 0.25
+        sleep 0.1
     done
 
     power="d${power}"
